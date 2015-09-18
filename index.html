@@ -3,26 +3,37 @@
   <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>99 bottles of Beer</title>
+    <title>Bottles of Beer on the Wall</title>
   </head>
   <body>
     <div class="container">
-      <h1>99 bottles of Beer</h1>
 
-      <form id="bottleCount">
-        <div class="form-group">
-          <label for="mainInput">How many bottles are there to start with?</label><br>
-          <input id="mainInput" type="text" value="99"><br><br>
-        </div>
-
-        <button type="submit" class="btn">submit</button>
-      </form>
-
-      <div id="result">
-        <p>Lyrics: <strong><span class="lyrics"></span></strong></p>
+      <div class="input">
+        <h1>How many bottles of beer on the wall to start with?</h1>
+        <form id="bottleCount">
+          <div class="form-group">
+            <input id="mainInput" type="text">
+          </div>
+          <button type="submit" class="btn">Sing!</button>
+        </form>
       </div>
+
+      <div class="result">
+        <h1><span id="inputArea"></span> bottles of beer on the wall!</h1>
+        <br>
+        <h3>Let's Sing Together!</h3>
+        <p id="songLyrics"></p>
+      </div>
+      <div class="goagain"><br></br>
+        <h5><strong>Sing it again!</strong></h5>
+        <form id="bottleCount">
+          <div class="form-group">
+            <input id="mainInput" type="text">
+          </div>
+          <button type="submit" class="btn">Sing!</button>
+        </form>
     </div>
   </body>
 </html>

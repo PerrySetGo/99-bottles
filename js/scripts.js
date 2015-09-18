@@ -1,23 +1,40 @@
-
-var bottleCount = function(number) {
-  if (number == 0) {
+var bottleCount = function(mainInput) {
+  if (mainInput === 0 ) {
     return finalLyrics();
-  } else {
-    return repeatedLyrics(number) + bottlesOfBeer(number-1);
+  } else if (mainInput === 1) {
+    return lastButOneLyrics(mainInput) + bottleCount(mainInput-1);
   }
+  else {
+    return repeatedLyrics(mainInput) + bottleCount(mainInput-1);
+  }
+}
+
+var repeatedLyrics = function(mainInput) {
+  var nextBottle = mainInput - 1;
+  return "<br>" + mainInput + " bottles of beer on the wall, " + mainInput + " bottles of beer. Take one down and pass it around, " + nextBottle + " bottles of beer on the wall. </br>";
+}
+
+var lastButOneLyrics = function(mainInput) {
+  var nextBottle = mainInput - 1;
+  return "<br>" + mainInput + " bottle of beer on the wall, " + mainInput + " bottle of beer. Take one down and pass it around, " + nextBottle + " bottles of beer on the wall. </br>";
+}
+
+var finalLyrics = function() {
+  return "<br> No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.</br>"
 }
 
 
 $(document).ready(function() {
-    $("form#bottleCount").submit(function(event) {
-    $(".lyrics").empty();
-    var mainInput = $("input#mainInput").val(); //add functionality to handle null values
-    var songText = bottleCount(mainInput);
+  $("form#bottleCount").submit(function(event) {
+    var mainInput = parseInt($("input#mainInput").val());
+    var songLyrics = bottleCount(mainInput);
 
-    $(".lyrics").append(songText);
+    $("#input").text(mainInput);
+    $("#songLyrics").html(songLyrics);
 
-    $("#result").show();
+    $(".result").show();
+    $(".input").hide();
+    $(".goagain").show(); 
     event.preventDefault();
   });
 });
-
