@@ -9,7 +9,7 @@ var bottleCount = function(mainInput) {
   }
 }
 
-var glassIcon ="<span class=\"glyphicon glyphicon-glass\"></span>"
+var glassIcon ="<span class='glyphicon glyphicon-glass'></span>"
 var repeatedLyrics = function(mainInput) {
   var nextBottle = mainInput - 1;
   return "<br>" + mainInput + " bottles of beer on the wall, " + mainInput + " bottles of beer. Take one down and pass it around, " + nextBottle + " bottles of beer on the wall. </br>";
