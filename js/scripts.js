@@ -9,6 +9,7 @@ var bottleCount = function(mainInput) {
   }
 }
 
+var glassIcon ="<span class=\"glyphicon glyphicon-glass\"></span>"
 var repeatedLyrics = function(mainInput) {
   var nextBottle = mainInput - 1;
   return "<br>" + mainInput + " bottles of beer on the wall, " + mainInput + " bottles of beer. Take one down and pass it around, " + nextBottle + " bottles of beer on the wall. </br>";
@@ -34,7 +35,20 @@ $(document).ready(function() {
 
     $(".result").show();
     $(".input").hide();
-    $(".goagain").show(); 
+    $(".goAgain").show();
+    event.preventDefault();
+  });
+
+  $("form#bottleCountAgain").submit(function(event) {
+    var mainInput = parseInt($("input#mainInputAgain").val());
+    var songLyrics = bottleCount(mainInput);
+
+    $("#input").text(mainInput);
+    $("#songLyrics").html(songLyrics);
+
+    $(".result").show();
+    $(".input").hide();
+    $(".goAgain").show();
     event.preventDefault();
   });
 });
